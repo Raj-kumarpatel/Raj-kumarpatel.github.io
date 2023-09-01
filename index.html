@@ -46,10 +46,9 @@
                         <a class="nav-link contact" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link resume" href="./public_html/assets/resume/raj.pdf" download target="_blank">
-                            <button class="- btn btn-primary rounded ml-4" id="resume-button-1" >Resume</button>
+                    <button class="- btn btn-primary rounded ml-4" id="resume-button-1" onclick="viewAndDownload()" >Resume</button>
 
-                        </a>
+                        
                     </li>
                 </ul>
             </div>
@@ -61,15 +60,14 @@
     <section class="header" id="home" >
         <div class="container">
             <div class="infos">
+                
                 <h6 class="subtitle">Hello,I'm</h6>
                 <h6 class="title" id="user-detail-name">Raj kumar patel</h6>
                 <p>MERN Stack Developer</p>
 
-                <div class="buttons pt-3">
-                    <a href="https://drive.google.com/file/d/1UKZn-7g5av_QH3DMKl6pdiJSWxZa1lME/view?usp=sharing"
-                        target="_blank" download=""><button class="btn btn-primary rounded">
+                <div class="buttons pt-3"><button class="btn btn-primary rounded"  onclick="viewAndDownload()">
                             VIEW RESUME</button>
-                    </a>
+                    
 
                     <a href="#projects">
                         <button class="btn btn-primary rounded">PROJECTS</button>
@@ -436,6 +434,20 @@
 
     <!-- Prepare a container for your calendar. -->
     <script>
+        function viewAndDownload() {
+     var fileURL = "https://drive.google.com/file/d/1UKZn-7g5av_QH3DMKl6pdiJSWxZa1lME/view?usp=drive_link";
+    var downloadURL = "https://drive.google.com/uc?export=download&id=1UKZn-7g5av_QH3DMKl6pdiJSWxZa1lME";
+    // Open the content in a new tab for viewing
+    window.open(fileURL, "_blank");
+    
+    // Initiate the download
+    var link = document.createElement("a");
+    link.href = downloadURL;
+    link.download = "Rajkumar-Patel-Resume.pdf"; // You can specify the desired filename here
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
         GitHubCalendar(".calendar", "Raj-kumarpatel");
     
         // or enable responsive functionality:
